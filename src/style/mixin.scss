@@ -1,0 +1,146 @@
+@import './variables';
+// 背景图片地址和大小
+@mixin bis($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+
+//定位全屏
+@mixin allcover {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+//定位上下左右居中
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//定位上下居中
+@mixin cl {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+    font: #{$size}/#{$line-height} $family;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color) {
+    font-size: $size;
+    color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+    display: flex;
+    justify-content: $type;
+}
+
+//边框
+@mixin c_border($size, $type, $color) {
+    border: $size $type $color;
+}
+//某一边 边框
+@mixin c_border-item($direction,$size,$type,$color){
+	@if $direction==top{
+		border-top: $size $type $color;
+	}
+	@else if $direction==right{
+		border-right: $size $type $color;
+	}
+	@else if $direction==bottom{
+		border-bottom: $size $type $color;
+	}
+	@else if $direction==left{
+		border-left: $size $type $color;
+	}
+}
+
+// 三角形
+/**
+*	@params $width $height $color $direction
+*/
+@mixin triangle($width, $height, $color, $direction) {
+	$width: $width/2;
+	$color-border-style: $height solid $color;
+	$transparent-border-style: $width solid transparent;
+	height: 0;
+	width: 0;
+	@if $direction==up {
+	  border-bottom: $color-border-style;
+	  border-left: $transparent-border-style;
+	  border-right: $transparent-border-style;
+	}
+	@else if $direction==right {
+	  border-left: $color-border-style;
+	  border-top: $transparent-border-style;
+	  border-bottom: $transparent-border-style;
+	}
+	@else if $direction==down {
+	  border-top: $color-border-style;
+	  border-left: $transparent-border-style;
+	  border-right: $transparent-border-style;
+	}
+	@else if $direction==left {
+	  border-right: $color-border-style;
+	  border-top: $transparent-border-style;
+	  border-bottom: $transparent-border-style;
+	}
+  }
+
+
+/*
+*前端标准
+*/
+// 标准卡片 每个大的区域都需要设置
+@mixin l_card{
+	@include borderRadius(2px);
+	box-shadow:0px 2px 10px 2px rgba(150, 162, 187,0.26);
+}
+//标准卡片的标题
+@mixin l_card_tile{
+	border-bottom:1px solid #ebedf2;
+	padding:20px 30px;
+	@include sc(16px,#333);
+	font-weight: bold;
+}
+//标准卡片的正文
+@mixin l_card_content{
+	@include sc(16px,#666);
+	padding: 20px 36px;
+	line-height: 1.8;
+}
+@mixin l_width{
+	width:1146px;
+}
+

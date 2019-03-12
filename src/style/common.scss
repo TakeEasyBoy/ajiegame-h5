@@ -1,0 +1,224 @@
+@import './variables';
+html {
+    box-sizing: border-box;
+}
+body,
+div,
+span,
+header,
+footer,
+nav,
+section,
+aside,
+article,
+ul,
+dl,
+dt,
+dd,
+li,
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+i,
+b,
+textarea,
+button,
+input,
+select,
+figure,
+pre,
+figcaption {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    color: #333;
+    font-weight: normal;
+    font-family: "Microsoft Yahei";
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    &:hover {
+        outline: none;
+    }
+}
+
+
+/*
+定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸
+*/
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: #F5F5F5;
+}
+input[type='number']::-webkit-outer-spin-button,
+ input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+/*在firefox下移除input[number]的上下箭头*/
+input[type="number"]{-moz-appearance:textfield;}
+/*
+定义滚动条轨道 内阴影+圆角
+*/
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+  -webkit-box-shadow: inset 0 0 1px rgba(255, 255, 255, 0);
+  border-radius: 20px;
+  background-color: #F5F5F5;
+}
+/*
+定义滑块 内阴影+圆角
+*/
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  box-shadow: inset 0 0 6px rgba(141, 136, 136, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(141, 136, 136, 0.3);
+  /*滚动条滑块颜色*/background-color: #e8e6e3;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+input[type="button"],
+input[type="submit"],
+input[type="search"],
+input[type="reset"] {
+    -webkit-appearance: none;
+}
+textarea {
+    -webkit-appearance: none;
+}
+//定义盒子模型
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+a,
+a:focus,
+a:hover {
+    cursor: pointer;
+    color: inherit;
+    text-decoration: none;
+}
+div:focus {
+    outline: none;
+}
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: $baseBgColor;
+}
+.margin {
+    margin: 0 auto;
+}
+
+.margintop30 {
+    margin-top: 30px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+.clear {
+  zoom: 1;
+}
+.clear:after {
+    content: "";
+    display: block;
+    clear: both;
+    height:0;
+    overflow:hidden;
+    visibility: hidden;
+}
+.ishide {
+    display: none;
+}
+
+.isshow {
+    display: block;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.cursorpointer {
+    cursor: pointer;
+}
+.textcenter{
+  text-align: center;
+}
+// 表格中有跳转的颜色
+.declare_a{
+	color: #000;
+	cursor: pointer;
+	&:hover,&:focus{
+		color:$baseColor;
+	}
+}
+@import './mixin';
+/**
+* 字体相关样式
+*/
+// 一般用于正文
+.ts-font{
+  @include font(0.75rem,1)
+}
+// 一般用于标题,导航等
+.tm-font{
+  @include font(0.875rem,1)
+}
+.tl-font{
+  @include font(1rem,1)
+}
+.tsxl-font{
+  @include font(1.25rem,1)
+}
+.tsxxl-font{
+  @include font(1.5rem,1)
+}
+.ts-font-bold{
+  font-weight: bold
+}
+.ts-color-placehd{
+  color: $fontPlaceHolder
+}
+.ts-color-main{
+  color: $mainFontColor;
+}
+.ts-color-emphsise{
+  color:$baseColorDeep;
+}
+.ts-color-red{
+  color:red
+}
+.ts-color-blue{
+  color:$baseColor;
+}
+.ts-color-placeholder{
+  color: $fontPlaceHolder
+}
