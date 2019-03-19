@@ -1,10 +1,7 @@
 <template>
   <div id="app" class="main-container">
     <transition name="router-fade" mode="out-in">
-      <!-- <keep-alive> -->
-        <!-- 使用keepalive在退出后会保存推出之前存在的路由 -->
         <router-view></router-view>
-      <!-- </keep-alive> -->
     </transition>
     <div v-show="visiable" @click='backToTop' class='totop'>
       <span>top</span>
