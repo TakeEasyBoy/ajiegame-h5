@@ -2,12 +2,24 @@
   <div class="mc-index">
     <!-- 轮播 S -->
     <div class="index-swipe">
-      <mt-swipe :auto="0" >
-        <mt-swipe-item v-for="(item,index) in imgUrls" :key="index">
-          <img :src="item" alt="" srcset="">
-        </mt-swipe-item>
-      </mt-swipe>
+      <cube-slide ref="slide" :data="items" @change="changePage">
+        <cube-slide-item v-for="(item, index) in items" :key="index" @click.native="clickHandler(item, index)">
+          <a :href="item.url">
+            <img :src="item.image">
+          </a>
+        </cube-slide-item>
+      </cube-slide>
     </div>
+    <div class="input-search">
+      <cube-input
+        style="width:280px;"
+        v-model="serchkey"
+        placeholder="请输入游戏进行搜索">
+      </cube-input>
+      <cube-button :inline="true">搜索</cube-button>
+    </div>
+    <cube-button class="btn">Button</cube-button>
+    <div>123</div>
     <!-- 轮播 E -->
     <!-- grid S -->
     <ul class="grid margintop30">
@@ -22,11 +34,8 @@
       <li class="grid-content"><a href="/"><span class="icon-menu icon-menu-pc"></span><span>端游</span></a></li>
       <li class="grid-content"><a href="/"><span class="icon-menu icon-menu-wzry"></span><span>王者荣耀</span></a></li>
     </ul>
+
     <!-- grid E -->
-    <mt-button type="default" size="small" @click="handleClick">default</mt-button>
-    <mt-button type="primary" size="small" @click="handleClick">primary</mt-button>
-    <mt-button type="danger" size="small" @click="handleClick">danger</mt-button>
-    <p class='ts-font'>我去你奶奶个最</p>
   </div>
 </template>
 
@@ -34,11 +43,21 @@
   export default {
     data() {
       return {
-        imgUrls: [
-          'https://static.jiaoyimao.com/resource/public/gnk/2019/2/28/a8a6f3d0-5c20-4966-863b-cf5e61e1080a.jpg',
-          'https://static.jiaoyimao.com/resource/public/gnk/2019/2/28/1dcd0335-86e1-4b07-9934-ff157a093858.jpg',
-          'https://static.jiaoyimao.com/resource/public/gnk/2019/3/1/31eefc62-0d5b-4277-aa35-356332688e4b.jpg'
-        ]
+        items: [
+          {
+            url: 'http://www.didichuxing.com/',
+            image: '//webapp.didistatic.com/static/webapp/shield/cube-ui-examples-slide01.png'
+          },
+          {
+            url: 'http://www.didichuxing.com/',
+            image: '//webapp.didistatic.com/static/webapp/shield/cube-ui-examples-slide02.png'
+          },
+          {
+            url: 'http://www.didichuxing.com/',
+            image: '//webapp.didistatic.com/static/webapp/shield/cube-ui-examples-slide03.png'
+          }
+        ],
+        serchkey: ''
       }
     },
     components: {},
@@ -46,8 +65,11 @@
     created() {},
     mounted() {},
     methods: {
-      handleClick() {
-        alert('asdf')
+      changePage(current) {
+        console.log('当前轮播图序号为:' + current)
+      },
+      clickHandler(item, index) {
+        console.log(item, index)
       }
     }
   }
@@ -81,6 +103,12 @@
           background: #0f0
         }
       }
+    }
+    .input-search{
+      display: flex;
+      justify-content: space-between;
+      width: 360px;
+      margin: 10px auto;
     }
     .grid{
       width: 98%;

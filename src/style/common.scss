@@ -210,24 +210,24 @@ body {
 */
 // 一般用于正文
 .ts-font {
-  @include font(0.75rem, 1)
+  @include font(12px, 1)
 }
 
 // 一般用于标题,导航等
 .tm-font {
-  @include font(0.875rem, 1)
+  @include font(14px, 1)
 }
 
 .tl-font {
-  @include font(1rem, 1)
+  @include font(16px, 1)
 }
 
 .tsxl-font {
-  @include font(1.25rem, 1)
+  @include font(18px, 1)
 }
 
 .tsxxl-font {
-  @include font(1.5rem, 1)
+  @include font(20px, 1)
 }
 
 .ts-font-bold {

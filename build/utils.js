@@ -15,7 +15,9 @@ exports.assetsPath = function(_path) {
 
 exports.cssLoaders = function(options) {
   options = options || {}
-
+  const stylusOptions = {
+    'resolve url': true
+  }
   const cssLoader = {
     loader: 'css-loader',
     options: {
@@ -68,8 +70,8 @@ exports.cssLoaders = function(options) {
       indentedSyntax: true
     }),
     scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    stylus: generateLoaders('stylus', stylusOptions),
+    styl: generateLoaders('stylus', stylusOptions)
   }
 }
 

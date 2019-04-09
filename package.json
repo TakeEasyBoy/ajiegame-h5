@@ -18,13 +18,21 @@
       "git add"
     ]
   },
+  "transformModules": {
+    "cube-ui": {
+      "transform": "cube-ui/lib/${member}",
+      "kebabCase": true,
+      "style": {
+        "ignore": ["create-api", "better-scroll", "locale"]
+      }
+    }
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "babel-polyfill": "^6.26.0",
+    "cube-ui": "^1.12.14",
     "event-source-polyfill": "^0.0.12",
-    "fastclick": "^1.0.6",
     "html2canvas": "^1.0.0-alpha.12",
-    "mint-ui": "^2.2.13",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1"
   },
@@ -73,6 +81,8 @@
     "semver": "5.5.0",
     "serve-static": "1.13.2",
     "shelljs": "0.8.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "svg-sprite-loader": "3.8.0",
     "uglifyjs-webpack-plugin": "1.2.7",
     "url-loader": "1.0.1",
@@ -83,7 +93,8 @@
     "webpack-bundle-analyzer": "2.13.1",
     "webpack-cli": "3.1.0",
     "webpack-dev-server": "3.1.5",
-    "webpack-merge": "4.1.4"
+    "webpack-merge": "4.1.4",
+    "webpack-transform-modules-plugin": "^0.4.3"
   },
   "engines": {
     "node": ">= 4.0.0",

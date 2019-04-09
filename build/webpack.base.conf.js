@@ -4,7 +4,7 @@ const utils = require('./utils')
 const config = require('../config')
 const { VueLoaderPlugin } = require('vue-loader')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+const TransformModulesPlugin = require('webpack-transform-modules-plugin')
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -24,6 +24,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
+      'cube-ui': 'cube-ui/lib',
       '@': resolve('src'),
       //设置别名,可以直接使用 'src/......',减少webpack编译时间
       'src': path.resolve(__dirname, '../src'),
@@ -82,7 +83,10 @@ module.exports = {
     }
     ]
   },
-  plugins: [new VueLoaderPlugin()],
+  plugins: [
+    new VueLoaderPlugin(),
+    new TransformModulesPlugin()
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

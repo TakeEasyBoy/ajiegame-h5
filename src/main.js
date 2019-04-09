@@ -9,10 +9,9 @@ import App from './App'
 import router from './router'
 import './style/common.scss'
 import 'babel-polyfill'
-// import '../static/js/flexible.min'
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-Vue.use(MintUI)
+import Cube from 'cube-ui'
+
+Vue.use(Cube)
 // import './permission'
 import { commonMethods } from './utils/common'
 Vue.prototype.$transNum = commonMethods.transNum
